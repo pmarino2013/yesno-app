@@ -14,14 +14,14 @@ const submit = () => {
 };
 </script>
 <template>
-  <div class="flex flex-col max-h-full">
+  <div class="flex flex-col bg-slate-900 max-h-screen">
     <!-- Encabezado del chat -->
     <div class="bg-gray-800 text-white p-4">
       <h1 class="text-lg font-semibold">Pregunta al Bot 🤖</h1>
     </div>
 
     <!-- Lista de mensajes -->
-    <div class="flex-1 overflow-y-auto p-4" ref="messageContainer">
+    <div class="flex-1 p-4 overflow-y-auto max-h-screen" ref="messageContainer">
       <div v-for="(mensaje, index) in conversacion" :key="index">
         <div class="mb-4">
           <div class="text-left text-slate-700">
