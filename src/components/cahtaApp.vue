@@ -14,7 +14,7 @@ const submit = () => {
 };
 </script>
 <template>
-  <div class="flex flex-col max-h-screen">
+  <div class="flex flex-col max-h-full">
     <!-- Encabezado del chat -->
     <div class="bg-gray-800 text-white p-4">
       <h1 class="text-lg font-semibold">Pregunta al Bot 🤖</h1>
