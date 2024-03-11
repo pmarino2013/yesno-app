@@ -33,7 +33,7 @@ const traerRespuesta = async (pregunta) => {
     }
 
     conversacion.value.push({
-      question: pregunta,
+      question: pregunta.trim(),
       answer: "",
       image: null,
     });
