@@ -11,17 +11,28 @@ const submit = () => {
   let dato = pregunta.value;
   props.traerRespuesta(dato);
   pregunta.value = "";
+  setInterval(() => {
+    scrollToTop();
+  }, 1000);
+};
+
+const scrollToTop = () => {
+  const alto = document.getElementById("miContenedor").scrollHeight;
+  document.getElementById("miContenedor").scrollTo({
+    top: alto,
+    behavior: "smooth", // Desplazamiento suave
+  });
 };
 </script>
 <template>
-  <div class="flex flex-col bg-slate-900 max-h-screen">
+  <div class="flex flex-col bg-slate-900 h-screen">
     <!-- Encabezado del chat -->
     <div class="bg-gray-800 text-white p-4">
       <h1 class="text-lg font-semibold">Pregunta al Bot 🤖</h1>
     </div>
 
     <!-- Lista de mensajes -->
-    <div class="flex-1 p-4 overflow-y-auto max-h-screen" ref="messageContainer">
+    <div class="flex-1 p-4 overflow-y-auto max-h-screen" id="miContenedor">
       <div v-for="(mensaje, index) in conversacion" :key="index">
         <div class="mb-4">
           <div class="text-left text-slate-700">
