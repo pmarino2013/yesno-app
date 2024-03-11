@@ -11,7 +11,7 @@ const submit = () => {
   let dato = pregunta.value;
   props.traerRespuesta(dato);
   pregunta.value = "";
-  setInterval(() => {
+  setTimeout(() => {
     scrollToTop();
   }, 1000);
 };
