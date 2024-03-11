@@ -14,7 +14,7 @@ const submit = () => {
   pregunta.value = "";
   setTimeout(() => {
     scrollToTop();
-  }, 2000);
+  }, 3000);
 };
 
 const scrollToTop = () => {
