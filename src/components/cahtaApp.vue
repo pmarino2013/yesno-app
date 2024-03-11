@@ -6,6 +6,7 @@ const props = defineProps({
 });
 
 const pregunta = ref("");
+const mensajes = ref(null);
 
 const submit = () => {
   let dato = pregunta.value;
@@ -13,7 +14,7 @@ const submit = () => {
   pregunta.value = "";
   setTimeout(() => {
     scrollToTop();
-  }, 1000);
+  }, 2000);
 };
 
 const scrollToTop = () => {
@@ -44,7 +45,7 @@ const scrollToTop = () => {
             </div>
           </div>
 
-          <div v-if="mensaje.answer" class="mb-4">
+          <div v-if="mensaje.answer" class="mb-4" ref="mensajes">
             <div
               class="text-right text-slate-700 animate__animated animate__rubberBand"
             >
