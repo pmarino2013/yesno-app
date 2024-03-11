@@ -1,7 +1,8 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import responseFunction from "./helpers/apiYesNo";
 import cahtaApp from "./components/cahtaApp.vue";
+import homer from "./assets/homer.gif";
 
 const respuesta = ref("");
 const loading = ref(true);
@@ -26,7 +27,7 @@ const traerRespuesta = async (pregunta) => {
 
   if (pregunta.length > 0) {
     for (let i = 0; i < pregunta.length; i++) {
-      if (pregunta.toLowerCase().includes(preguntasInvalidas[i])) {
+      if (pregunta.trim().toLowerCase().includes(preguntasInvalidas[i])) {
         validar = false;
       }
     }
@@ -51,8 +52,7 @@ const traerRespuesta = async (pregunta) => {
           ...conversacion.value,
           {
             answer: "No entiendo",
-            image:
-              "https://www.pngkit.com/png/full/10-105264_thinking-smiley-face-png-picture-royalty-free-stock.png",
+            image: homer,
           },
         ];
       }, 2000);

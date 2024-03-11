@@ -28,8 +28,9 @@ const scrollToTop = () => {
 <template>
   <div class="flex flex-col bg-slate-900 h-screen">
     <!-- Encabezado del chat -->
-    <div class="bg-gray-800 text-white p-4">
-      <h1 class="text-lg font-semibold">Pregunta al Bot 🤖</h1>
+    <div class="bg-gray-800 text-white p-4 flex justify-center gap-2">
+      <h1 class="text-lg font-semibold">Pregunta al YesBot</h1>
+      <img class="w-6" src="../assets/robot.png" alt="robot" />
     </div>
 
     <!-- Lista de mensajes -->
@@ -39,7 +40,7 @@ const scrollToTop = () => {
           <div class="text-left text-slate-700">
             <div
               v-if="mensaje.question"
-              class="bg-gray-200 rounded-lg px-4 py-2 inline-block"
+              class="bg-gray-200 rounded-lg px-4 py-2 inline-block animate__animated animate__fadeIn"
             >
               {{ mensaje.question }}
             </div>
@@ -52,18 +53,17 @@ const scrollToTop = () => {
               <div
                 class="bg-gray-200 rounded-lg px-4 py-2 inline-block w-72 relative"
               >
-                <div class="overlay">
-                  <span class="font-bold text-2xl text-slate-50"
-                    >🤖{{
-                      mensaje.answer === "yes"
-                        ? "SI"
-                        : mensaje.answer === "no"
-                        ? "NO"
-                        : mensaje.answer === "maybe"
-                        ? "TAL VEZ"
-                        : mensaje.answer.toUpperCase()
-                    }}</span
-                  >
+                <div class="overlay gap-2">
+                  <img src="../assets/robot.png" alt="robot" />
+                  <span class="font-bold text-2xl text-slate-50">{{
+                    mensaje.answer === "yes"
+                      ? "SI"
+                      : mensaje.answer === "no"
+                      ? "NO"
+                      : mensaje.answer === "maybe"
+                      ? "TAL VEZ"
+                      : mensaje.answer.toUpperCase()
+                  }}</span>
                 </div>
                 <img :src="mensaje.image" :alt="mensaje.answer" />
               </div>
@@ -80,11 +80,11 @@ const scrollToTop = () => {
           v-model="pregunta"
           type="text"
           placeholder="Escribe un mensaje..."
-          class="flex-1 px-2 py-1 rounded-l-md me-2"
+          class="flex-1 px-2 py-1 rounded-l-md"
         />
         <button
           @click="submit"
-          class="px-4 py-1 bg-gray-800 text-white rounded-l-md"
+          class="px-4 py-1 bg-gray-800 text-white rounded-r-md"
         >
           Enviar
         </button>
